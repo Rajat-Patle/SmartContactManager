@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{:: #content},~{::title},~{::script})}">
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link rel="stylesheet" th:href="@{/CSS/output.css}">
+          <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+          <title>Services Page</title>
+
+</head>
+       <style>
+              #content {
+                    padding: 20px;
+                    margin-top: 60px; /* Adjust based on your navbar height */
+                    background-color: #f9f9f9; /* Light background for content area */
+              }
+       </style>
+<body>
+          <section id="content">
+                    <h1>Welcome to Services Page</h1>
+                    <h2>Services offered by SCM</h2>
+          </section>
+
+          <script>
+                    console.log("Services Page Loaded");
+          </script>
+</body>
+       <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+</html>

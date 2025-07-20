@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{:: #content},~{::title},~{::script})}" >
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link rel="stylesheet" th:href="@{/CSS/output.css}">
+          <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+          <title>About Page</title>
+
+</head>
+       <style>
+              #content {
+                    padding: 20px;
+                    margin-top: 90px; /* Adjust based on your navbar height */
+                    background-color: #fa0d0d; /* Light background for content area */
+                    margin-bottom: 100px; /* Ensure content does not overlap with footer */
+              }
+       </style>
+<body>
+          <section id="content">
+                    <h1>Welcome to About Page</h1>
+                    <p>About us content goes here. This section can include information about the company, its mission, and values.</p>
+                    <p>Feel free to customize this section with any additional details you want to share with
+          </section>
+
+          <script>
+                   console.log("1About Page Loaded"); 
+          </script>
+          <script>
+                   console.log("2About Page Loaded"); 
+          </script>
+          <script>
+                   console.log("3About Page Loaded"); 
+          </script>
+          <script>
+                   console.log("4About Page Loaded"); 
+          </script>
+</body>
+       <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+</html>

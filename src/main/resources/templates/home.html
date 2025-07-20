@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{:: #content},~{::title},~{::script})}" >
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link rel="stylesheet" th:href="@{/CSS/output.css}">
+          <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+          <title>Home Page</title>
+
+</head>
+       <style>
+              #content {
+                    padding: 20px;
+                    margin-top: 60px; /* Adjust based on your navbar height */
+                    background-color: #f9f9f9; /* Light background for content area */
+              }
+       </style>
+<body>
+          <section id="content">
+                    <h1>Welcome to Home Page</h1>
+                    <p>Home Page content goes here. This section can include information about the company, its mission, and values.</p>
+                    <p>Feel free to customize this section with any additional details you want to share with
+          </section>
+
+          <script>
+                   console.log("1Home Page Loaded"); 
+          </script>
+          <script>
+                   console.log("2Home Page Loaded"); 
+          </script>
+          <script>
+                   console.log("3Home Page Loaded"); 
+          </script>
+          <script>
+                   console.log("4Home Page Loaded"); 
+          </script>
+</body>
+       <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+</html>

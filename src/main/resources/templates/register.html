@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en"
+      th:replace="~{base :: parent(~{:: #content}, ~{::title}, ~{::script})}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/CSS/output.css}">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet">
+    <title>Signup Page</title>
+    <style>
+        #content {
+            padding: 20px;
+            margin-top: 60px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div class="grid grid-cols-12">
+            <div class="col-span-4 md:col-span-2 lg:col-span-3 xl:col-span-4"></div>
+            <div class="col-span-12 md:col-span-8 lg:col-span-6 xl:col-span-4">
+                
+              <!-- Card  -->
+              <div style="margin-top: 15px;  width: 500px;" class="block p-6 bg-white border rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                <!-- Message Box     -->
+                <div th:replace="~{message :: messagebox}"></div>
+                <!-- Message Box ended -->
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                        Signup Here
+                    </h5>
+                    <p class="font-normal text-gray-700 dark:text-gray-400">
+                        Start managing contacts on cloud...
+                    </p>
+
+                    <!-- This is the form   -->
+                    <form data-th-action="@{'/do-register'}" method="post" novalidate
+                    enctype="multipart/form-data" data-th-object="${userForm}" class="mt-3">
+                        <!-- User name -->
+                        <div class="mb-3">
+                            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User Name</label>
+                            <input type="text" id="name" th:field="*{name}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="Enter Name" required />
+                            <p
+                                data-th-if="${#fields.hasErrors('name')}"
+                                data-th-errors="*{name}"
+                                class="text-red-600 px-1 py-2">
+                                Name is required
+                            </p>
+                        </div>
+                        
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                            <input type="email" id="email" th:field="*{email}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="Enter Email" required />
+                            <p
+                  data-th-if="${#fields.hasErrors('email')}"
+                  data-th-errors="*{email}"
+                  class="text-red-600 px-1 py-2"
+                ></p>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mb-3">
+                            <label for="pwd" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                            <input type="password" id="pwd" th:field="*{password}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="Enter Password" required />
+                             <p
+                  data-th-if="${#fields.hasErrors('password')}"
+                  data-th-errors="*{password}"
+                  class="text-red-600 px-1 py-2"
+                ></p>
+                        </div>
+
+                        <!-- Contact Number -->
+                        <div class="mb-3">
+                            <label for="contact" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact Number</label>
+                            <input type="tel" id="contact" th:field="*{phoneNumber}" pattern="[0-9]{10}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="Enter 10-digit number" required />
+                             <p
+                  data-th-if="${#fields.hasErrors('phoneNumber')}"
+                  data-th-errors="*{phoneNumber}"
+                  class="text-red-600 px-1 py-2"
+                ></p>
+                        </div>
+
+                        <!-- About -->
+                        <div class="mb-3">
+                            <label for="about" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">About</label>
+                            <textarea id="about"  th:field="*{about}" rows="4" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 resize-none dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="Write something about yourself..."></textarea>
+                            <p
+                             data-th-if="${#fields.hasErrors('about')}"
+                             data-th-errors="*{about}"
+                             class="text-red-600 px-1 py-2"></p>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="flex justify-between gap-2">
+                            <button type="submit" class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-800">
+                                Signup
+                            </button>
+                            <button type="reset" class="w-full text-white bg-green-600 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-600 dark:focus:ring-green-800">
+                                Reset
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+</body>
+</html>
