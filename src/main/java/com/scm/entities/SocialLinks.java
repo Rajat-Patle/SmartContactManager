@@ -13,20 +13,18 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
+@Entity
+public class SocialLinks {
 
-@Entity(name = "social_link")
-public class SocialLinks 
-{
-       @Id   
-       @GeneratedValue(strategy = GenerationType.IDENTITY)
-       private Long id;
-       private String link;
-       private String title;
-       
-       @ManyToOne
-       private Contact contact;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String link;
+    private String title;
 
+    @ManyToOne
+    private Contact contact;
 }

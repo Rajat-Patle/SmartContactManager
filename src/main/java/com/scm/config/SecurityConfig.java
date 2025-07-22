@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -43,11 +42,11 @@ public class SecurityConfig {
     @Autowired
     private SecurityCustomUserDetailService userDetailService;
 
-    // @Autowired
-    // private OAuthAuthenicationSuccessHandler handler;
+    @Autowired
+    private OAuthAuthenicationSuccessHandler handler;
 
-    // @Autowired
-    // private AuthFailtureHandler authFailtureHandler;
+    @Autowired
+    private AuthFailtureHandler authFailtureHandler;
 
     // configuraiton of authentication providerfor spring security
     @Bean
@@ -113,18 +112,17 @@ public class SecurityConfig {
             // }
 
             // });
-            // formLogin.failureHandler(authFailtureHandler);
+            formLogin.failureHandler(authFailtureHandler);
 
         });
 
         httpSecurity.csrf(AbstractHttpConfigurer::disable);
         
         // oauth configurations
-        httpSecurity.oauth2Login(Customizer.withDefaults());
-        // httpSecurity.oauth2Login(oauth -> {
-        //     oauth.loginPage("/login");
-        //     oauth.successHandler(handler);
-        // });
+        httpSecurity.oauth2Login(oauth -> {
+            oauth.loginPage("/login");
+            oauth.successHandler(handler);
+        });
 
         httpSecurity.logout(logoutForm -> {
             logoutForm.logoutUrl("/do-logout");
