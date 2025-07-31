@@ -15,7 +15,8 @@ import com.scm.helpers.AppConstants;
 import com.scm.helpers.Helper;
 import com.scm.helpers.ResourceNotFoundException;
 import com.scm.repository.UserRepo;
-// import com.scm.services.EmailService;
+import com.scm.services.EmailService;
+
 import com.scm.services.UserService;
 
 @Service
@@ -27,8 +28,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-//     @Autowired
-//     private EmailService emailService;
+    @Autowired
+    private EmailService emailService;
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -54,7 +55,7 @@ public class UserServiceImpl implements UserService {
         user.setEmailToken(emailToken);
         User savedUser = userRepo.save(user);
         String emailLink = helper.getLinkForEmailVerificatiton(emailToken);
-      //   emailService.sendEmail(savedUser.getEmail(), "Verify Account : Smart  Contact Manager", emailLink);
+        emailService.sendEmail(savedUser.getEmail(), "Verify Account : Smart  Contact Manager", emailLink);
         return savedUser;
 
     }

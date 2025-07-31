@@ -94,6 +94,12 @@
    			 <version>2.0.0</version>
 		</dependency>
 		
+		<!-- Email dependency -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
@@ -124,7 +130,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
-
-	
 </project>
